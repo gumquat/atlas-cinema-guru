@@ -1,6 +1,12 @@
 # Holberton School Cinema Guru API
 This is a simple movies API dedicated for Holberton School React Project Holberton School Cinema Guru
 
+## Figma
+![alt text](image.png)
+https://www.figma.com/design/XGAcGZO19xZ8RlErQ9XznV/Holbertonschool---Cinema-Guru-(Copy)?node-id=0-1&t=FXvAioMU0Dbspubg-1
+
+
+
 ## Response Codes 
 ### Response Codes
 ```

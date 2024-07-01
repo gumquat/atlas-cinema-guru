@@ -23,4 +23,4 @@ services:
     volumes:
       - node-db:/var/lib/postgresql/data
 volumes:
- node-db:
+  node-db:

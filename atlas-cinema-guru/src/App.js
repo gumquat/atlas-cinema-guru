@@ -8,7 +8,10 @@ import Button from './components/general/Button'
 function App() {
   // SearchBar useState
   const [title, setTitle] = useState('');
+  // SelectedInput useState
   const [selectedOption, setSelectedOption] = useState('');
+  // Input useState
+  const [inputValue, setInputValue] = useState('');
 
   const options = [
     { label: 'Default', value: '1' },
@@ -20,17 +23,27 @@ function App() {
 
   return (
     <div className="App">
-      <div className="SearchBar">
-        <SearchBar title={title} setTitle={setTitle}/>
+      <div>
+        <SearchBar 
+        title={title}
+        setTitle={setTitle}/>
       </div>
-      <div className="Button">
-        <Button />
+      <div>
+        <Button label="Load More..."/>
       </div>
-      <div className="Input">
-      <Input />
+      <div>
+        <Input 
+        label="placeholder title" 
+        type="text" 
+        value={inputValue} 
+        setValue={setInputValue}/>
       </div>
-      <div className="selectInput">
-        <SelectInput label="Choose an option" options={options} value={selectedOption} setValue={selectedOption} />
+      <div>
+        <SelectInput
+        label="Choose an option"
+        options={options}
+        value={selectedOption}
+        setValue={setSelectedOption} />
       </div>
     </div>
   );

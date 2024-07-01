@@ -15,7 +15,6 @@ const Input = ({ label, type, className, value, setValue, icon, inputAttributes 
     setValue(event.target.value);
   };
 
-
   return (
     <div className={`input-container ${className}`}>
       {label && <label>{label}</label>}

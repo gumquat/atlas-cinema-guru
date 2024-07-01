@@ -1,5 +1,7 @@
 import React from 'react';
 import './general.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 // ___PROPS___
 // title: String – The controlled state
@@ -11,13 +13,15 @@ const SearchBar = ({ title, setTitle }) => {
 
   return (
     <div className="search-bar-container">
-      <input 
-        type="text" 
-        value={title} 
-        onChange={handleInput} 
-        className="search-bar-input"
-        placeholder="Search..." 
-      />
+      <div className="search-bar-wrapper">
+        <FontAwesomeIcon icon={faSearch} className="search-icon" />
+        <input
+          type="text"
+          placeholder="Search..."
+          value={title}
+          onChange={handleInput}
+        />
+      </div>
     </div>
   );
 };

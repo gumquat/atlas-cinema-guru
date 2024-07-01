@@ -1,1 +1,36 @@
 /*BEGIN INSANE CSS CODE*/
+
+/*BUTTON - COMPONENT*/
+.custom-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: darkred; /* Color change on hover */
+}
+
+/*SEARCH BAR - COMPONENT*/
+.search-bar-container {
+  position: relative;
+}
+
+.search-bar-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: #888;
+}
+
+.search-bar-wrapper input {
+  padding-left: 30px; /* Adjust this value based on your icon size */
+}

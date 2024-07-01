@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // icon(optional): FontAwesomeIcon – An icon to decorate the button with.
 const Button = ({ label, className, onClick, icon }) => {
   return (
-    <button className={`button ${className}`} onClick={onClick}>
+    <button className={`custom-button ${className}`} onClick={onClick}>
       {icon && <FontAwesomeIcon icon={icon} />}
       {label}
     </button>

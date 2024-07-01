@@ -7,7 +7,7 @@ import './general.css';
 // className: String – SelectInput custom classes
 // value: Any – The controlled state
 // setValue: Function – The setState function of the above state
-const SelectInput = ({ label, options, className, value, setValue }) => {
+const SelectInput = ({ label, options = [], className, value, setValue }) => {
   const handleSelect = (event) => {
     setValue(event.target.value);
   };

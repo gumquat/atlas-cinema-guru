@@ -1,11 +1,17 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 import Input from './components/general/Input';
 import SelectInput from './components/general/SelectInput';
 import SearchBar from './components/general/SearchBar';
 import Button from './components/general/Button';
+import Authentication from './routes/auth/Authentication';
 
 function App() {
+  // APP useState Is Logged IN/OFF
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // APP useState USERNAME
+  const [userUserName, setUserUserName] = useState('');
+
   // SearchBar useState
   const [title, setTitle] = useState('');
   // Input useState
@@ -21,9 +27,48 @@ function App() {
     { label: 'Lowest Rated', value: '5' },
   ];
 
+  // useEffect for handling LOGIN when the component mounts  
+  useEffect(() => {
+    const authenticateUser = async () => {
+      const accessToken = localStorage.getItem('accessToken');
+      if (accessToken) {
+        try {
+          const response = await fetch('/api/auth/', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${accessToken}`,
+              'Content-Type': 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            // Handle authetication success
+            const data = await response.json();
+            setIsLoggedIn(true);
+            setUserUsername(data.username);
+          } else {
+            // Handle authentication failure
+            setIsLoggedIn(false);
+            setUserUsername('');
+          }
+        } catch (error) {
+          // error logging
+          console.error('Authentication error:', error);
+          setIsLoggedIn(false);
+          setUserUsername('');
+        }
+      }
+    };
+    authenticateUser();
+  }, []); // Empty dependency array means this effect runs once on mount
+
   return (
     <div className="App">
-      <div>
+
+
+
+
+      {/* <div>
         <SearchBar
         title={title}
         setTitle={setTitle}/>
@@ -44,7 +89,7 @@ function App() {
         options={options}
         value={selectedOption}
         setValue={setSelectedOption} />
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import './general.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import the specific icon here
 
 // ___PROPS___
 // label: String – The button label

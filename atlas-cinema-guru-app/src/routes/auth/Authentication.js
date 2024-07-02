@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
 import './auth.css'
-import Button from './src/components/general/Button' 
-import Login from './src/routes/auth/Login'
-import Register from './src/routes/auth/Register'
+import Button from './components/general/Button' 
+import Login from './routes/auth/Login'
+import Register from './routes/auth/Register'
 
 // ___PROPS___
 // setIsLoggedIn: function – The setState for the isLoggedin state
 // setUserUsername: function –The setState for the userUsername state
-const Authentication = ({setIsLoggedIn, setUserUserName}) => {
+const Authentication = ({setIsLoggedIn, setUserUsername}) => {
   //STATE
   const [_switch, setSwitch] = useState(true);
   const [username, setUsername] = useState('');

@@ -9,8 +9,10 @@ import Authentication from './routes/auth/Authentication';
 function App() {
   // APP useState Is Logged IN/OFF
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // APP useState USERNAME
-  const [userUserName, setUserUserName] = useState('');
+  // APP useState USERNAME and PASSWORD
+  const [userUsername, setUserUsername] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+    // need username and password handler functions
 
   // SearchBar useState
   const [title, setTitle] = useState('');
@@ -40,7 +42,6 @@ function App() {
               'Content-Type': 'application/json'
             }
           });
-
           if (response.ok) {
             // Handle authetication success
             const data = await response.json();
@@ -64,32 +65,44 @@ function App() {
 
   return (
     <div className="App">
-
-
-
-
-      {/* <div>
-        <SearchBar
-        title={title}
-        setTitle={setTitle}/>
-      </div>
-      <div>
-        <Button label="Load More..."/>
-      </div>
-      <div>
-        <Input
-        label="placeholder title"
-        type="text"
-        value={inputValue}
-        setValue={setInputValue}/>
-      </div>
-      <div>
-        <SelectInput
-        label="Choose an option"
-        options={options}
-        value={selectedOption}
-        setValue={setSelectedOption} />
-      </div> */}
+      {isLoggedIn ? (
+        // Render the main app content when logged in
+        <div>
+          <h1>Welcome, {userUsername}!</h1>
+          {/* Add your main app components here */}
+          <div>
+            <SearchBar
+              title={title}
+              setTitle={setTitle}
+            />
+          </div>
+          <div>
+            <Button label="Load More..."/>
+          </div>
+          <div>
+            <Input
+              label="placeholder title"
+              type="text"
+              value={inputValue}
+              setValue={setInputValue}
+            />
+          </div>
+          <div>
+            <SelectInput
+              label="Choose an option"
+              options={options}
+              value={selectedOption}
+              setValue={setSelectedOption}
+            />
+          </div>
+        </div>
+      ) : (
+        // Render the Authentication component when not logged in
+        <Authentication 
+          setIsLoggedIn={setIsLoggedIn} 
+          setUserUsername={setUserUsername}
+        />
+      )}
     </div>
   );
 }

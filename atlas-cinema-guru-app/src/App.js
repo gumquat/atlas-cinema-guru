@@ -8,11 +8,11 @@ import Button from './components/general/Button';
 function App() {
   // SearchBar useState
   const [title, setTitle] = useState('');
-  // SelectedInput useState
-  const [selectedOption, setSelectedOption] = useState('');
   // Input useState
   const [inputValue, setInputValue] = useState('');
-
+  // SelectedInput useState
+  const [selectedOption, setSelectedOption] = useState('');
+  // SelectInput Options
   const options = [
     { label: 'Default', value: '1' },
     { label: 'Latest', value: '2' },
@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        <SearchBar 
+        <SearchBar
         title={title}
         setTitle={setTitle}/>
       </div>
@@ -32,10 +32,10 @@ function App() {
         <Button label="Load More..."/>
       </div>
       <div>
-        <Input 
-        label="placeholder title" 
-        type="text" 
-        value={inputValue} 
+        <Input
+        label="placeholder title"
+        type="text"
+        value={inputValue}
         setValue={setInputValue}/>
       </div>
       <div>

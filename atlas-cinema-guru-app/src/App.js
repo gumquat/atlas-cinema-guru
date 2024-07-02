@@ -3,7 +3,7 @@ import './App.css';
 import Input from './components/general/Input';
 import SelectInput from './components/general/SelectInput';
 import SearchBar from './components/general/SearchBar';
-import Button from './components/general/Button'
+import Button from './components/general/Button';
 
 function App() {
   // SearchBar useState

@@ -33,6 +33,22 @@ const Authentication = ({setIsLoggedIn, setUserUserName}) => {
             className={!_switch ? 'active' : ''}
           />
         </div>
+        
+        {_switch ? (
+          <Login 
+            username={username}
+            password={password}
+            setUsername={setUsername}
+            setPassword={setPassword}
+          />
+        ) : (
+          <Register 
+            username={username}
+            password={password}
+            setUsername={setUsername}
+            setPassword={setPassword}
+          />
+        )}
       </form>
     </div>
   )

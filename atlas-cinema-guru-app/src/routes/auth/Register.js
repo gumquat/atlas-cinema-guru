@@ -14,7 +14,7 @@ const Register = ({username, password, setUsername, setPassword}) => {
     <div>
       <h1>Create a new account</h1>    
       <Input
-      label="Username"
+      //label="Username"
       type="text"
       className="auth-input"
       value={username}
@@ -26,18 +26,19 @@ const Register = ({username, password, setUsername, setPassword}) => {
       }}
       />
       <Input
-        label="Password"
+        //label="Password"
         type="password"
         className="auth-input"
         value={password}
         setValue={setPassword}
         icon={faLock}
         inputAttributes={{
-          placeholder: "Password:",
+          placeholder: "Password",
           required: true
         }}
       />
-      <Button 
+      <Button
+      className="SignUp-Button"
       label=" Sign Up"
       icon={faPlus}/>
     </div>

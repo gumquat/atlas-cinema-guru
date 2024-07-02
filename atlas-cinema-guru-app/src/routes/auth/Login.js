@@ -12,9 +12,9 @@ import Button from '../../components/general/Button'
 const Login = ({username, password, setUsername, setPassword}) => {
   return (
     <div>
-      <h1>Sign in with your account</h1>    
+      <h1>Sign into your account</h1>    
       <Input
-      label="Username"
+      //label="Username"
       type="text"
       className="auth-input"
       value={username}
@@ -26,18 +26,19 @@ const Login = ({username, password, setUsername, setPassword}) => {
       }}
       />
       <Input
-        label="Password"
+        //label="Password"
         type="password"
         className="auth-input"
         value={password}
         setValue={setPassword}
         icon={faLock}
         inputAttributes={{
-          placeholder: "Password:",
+          placeholder: "Password",
           required: true
         }}
       />
       <Button 
+      className="SignIn-Button"
       label=" Sign In"
       icon={faKey}/>
     </div>

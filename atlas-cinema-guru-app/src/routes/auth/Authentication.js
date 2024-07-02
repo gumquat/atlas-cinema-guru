@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import axios from 'axios';
 import './auth.css'
 import Button from '../../components/general/Button' 
 import Login from './Login'
@@ -13,9 +14,33 @@ const Authentication = ({setIsLoggedIn, setUserUsername}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle auth submission here
+
+    try {
+      let response;
+      if (_switch) {
+        // Login
+        response = await axios.post('/api/auth/login', { username, password });
+      } else {
+        // Register
+        response = await axios.post('/api/auth/register', { username, password });
+      }
+
+      // Assuming the token is in response.data.token
+      const token = response.data.token;
+
+      // Store token in localStorage
+      localStorage.setItem('token', token);
+
+      // Update state
+      setUserUsername(username);
+      setIsLoggedIn(true);
+
+    } catch (error) {
+      console.error('Authentication error:', error);
+      // Handle error (e.g., show error message to user)
+    }
   };
 
   return (
@@ -51,7 +76,8 @@ const Authentication = ({setIsLoggedIn, setUserUsername}) => {
         )}
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default Authentication;
+

@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import './auth.css'
 import Button from './src/components/general/Button' 
-import Input from './components/general/Input'
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
+import Login from './src/routes/auth/Login'
+import Register from './src/routes/auth/Register'
 
 // ___PROPS___
 // setIsLoggedIn: function – The setState for the isLoggedin state
@@ -33,13 +33,6 @@ const Authentication = ({setIsLoggedIn, setUserUserName}) => {
             className={!_switch ? 'active' : ''}
           />
         </div>
-
-        <h2>{_switch ? 'Sign In' : 'Sign Up'}</h2>
-
-        <Button 
-          label={_switch ? 'Sign In' : 'Sign Up'} 
-          type="submit"
-        />
       </form>
     </div>
   )

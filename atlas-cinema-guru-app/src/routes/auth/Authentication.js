@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import './auth.css'
-import Button from './components/general/Button' 
-import Login from './routes/auth/Login'
-import Register from './routes/auth/Register'
+import Button from '../../components/general/Button' 
+import Login from './Login'
+import Register from './Register'
 
 // ___PROPS___
 // setIsLoggedIn: function – The setState for the isLoggedin state

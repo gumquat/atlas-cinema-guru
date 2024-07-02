@@ -1,9 +1,8 @@
 import React from 'react'
 import './auth.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock, faKey } from '@fortawesome/free-solid-svg-icons';
-import Input from './components/general/Input'
-import Button from './components/general/Button'
+import Input from '../../components/general/Input'
+import Button from '../../components/general/Button'
 
 // ___PROPS__
 // username: string – The username controlled state
@@ -39,7 +38,7 @@ const Login = ({username, password, setUsername, setPassword}) => {
         }}
       />
       <Button 
-      label="Sign In"
+      label=" Sign In"
       icon={faKey}/>
     </div>
   )

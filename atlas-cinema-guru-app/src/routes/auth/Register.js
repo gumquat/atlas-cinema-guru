@@ -1,8 +1,7 @@
 import React from 'react'
 import './auth.css'
-import Input from './src/components/general/Input'
-import Button from './src/components/general/Button'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Input from '../../components/general/Input'
+import Button from '../../components/general/Button'
 import {  faUser, faLock, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 // ___PROPS___
@@ -39,7 +38,7 @@ const Register = ({username, password, setUsername, setPassword}) => {
         }}
       />
       <Button 
-      label="Sign Up"
+      label=" Sign Up"
       icon={faPlus}/>
     </div>
   )

@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import Input from './components/general/Input';
 import SelectInput from './components/general/SelectInput';
@@ -65,47 +66,49 @@ function App() {
   }, []); // Empty dependency array means this effect runs once on mount
 
   return (
-    <div className="App">
-      {isLoggedIn ? (
-        // Render the main app content when logged in
-        <div>
-          <h1>Welcome, {userUsername}!</h1>
-          {/* Add your main app components here */}
+    <Router>
+      <div className="App">
+        {isLoggedIn ? (
+          // Render the main app content when logged in
           <div>
-            <SearchBar
-              title={title}
-              setTitle={setTitle}
-            />
+            <h1>Welcome, {userUsername}!</h1>
+            {/* Add your main app components here */}
+            <div>
+              <SearchBar
+                title={title}
+                setTitle={setTitle}
+              />
+            </div>
+            <div>
+              <Button label="Load More..."/>
+            </div>
+            <div>
+              <Input
+                label="placeholder title"
+                type="text"
+                value={inputValue}
+                setValue={setInputValue}
+              />
+            </div>
+            <div>
+              <SelectInput
+                label="Choose an option"
+                options={options}
+                value={selectedOption}
+                setValue={setSelectedOption}
+              />
+            </div>
           </div>
-          <div>
-            <Button label="Load More..."/>
-          </div>
-          <div>
-            <Input
-              label="placeholder title"
-              type="text"
-              value={inputValue}
-              setValue={setInputValue}
-            />
-          </div>
-          <div>
-            <SelectInput
-              label="Choose an option"
-              options={options}
-              value={selectedOption}
-              setValue={setSelectedOption}
-            />
-          </div>
-        </div>
-      ) : (
-        // Render the Authentication component when not logged in
-        <Authentication 
-          setIsLoggedIn={setIsLoggedIn} 
-          setUserUsername={setUserUsername}
-        />
-      )}
-      <Dashboard/>
-    </div>
+        ) : (
+          // Render the Authentication component when not logged in
+          <Authentication 
+            setIsLoggedIn={setIsLoggedIn} 
+            setUserUsername={setUserUsername}
+          />
+        )}
+        <Dashboard/>
+      </div>
+    </Router>
   );
 }
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './navigation.css'
-import Activity from './Activity'
+import Activity from '../Activity'
 
 const SideBar = () => {
   const [selected, setSelected] = useState("home");

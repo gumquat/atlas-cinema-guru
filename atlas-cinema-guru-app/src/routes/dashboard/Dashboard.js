@@ -7,7 +7,7 @@ const Dashboard = ({userUsername, setIsLoggedIn}) => {
   return (
     <div>
       <Header userUsername={userUsername} setIsLoggedIn={setIsLoggedIn} />
-      <Sidebar/>
+      <SideBar/>
     </div>
   )
 }

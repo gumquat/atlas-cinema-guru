@@ -29,10 +29,8 @@ const Authentication = ({setIsLoggedIn, setUserUsername}) => {
 
       // Assuming the token is in response.data.token
       const token = response.data.token;
-
       // Store token in localStorage
       localStorage.setItem('token', token);
-
       // Update state
       setUserUsername(username);
       setIsLoggedIn(true);

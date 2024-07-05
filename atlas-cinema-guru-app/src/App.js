@@ -5,6 +5,7 @@ import SelectInput from './components/general/SelectInput';
 import SearchBar from './components/general/SearchBar';
 import Button from './components/general/Button';
 import Authentication from './routes/auth/Authentication';
+import Dashboard from './routes/dashboard/Dashboard';
 
 function App() {
   // APP useState Is Logged IN/OFF
@@ -103,6 +104,7 @@ function App() {
           setUserUsername={setUserUsername}
         />
       )}
+      <Dashboard/>
     </div>
   );
 }

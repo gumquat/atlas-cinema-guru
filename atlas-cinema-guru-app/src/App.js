@@ -50,15 +50,18 @@ function App() {
   }, []);
 
   return (
-    <div className={`App ${isLoggedIn ? 'dashboard-view' : 'authentication-view'}`}>
-      {isLoggedIn ? <Dashboard
-        userUsername={userUsername}
-        setIsLoggedIn={setIsLoggedIn}
-      /> : <Authentication
-        setIsLoggedIn={setIsLoggedIn}
-        setUserUsername={setUserUsername}
-      />}
-    </div>
+    <Router>
+      <div className={`App ${isLoggedIn ? 'dashboard-view' : 'authentication-view'}`}>
+        {isLoggedIn ? <Dashboard
+          userUsername={userUsername}
+          setIsLoggedIn={setIsLoggedIn}
+        /> : <Authentication
+          setIsLoggedIn={setIsLoggedIn}
+          setUserUsername={setUserUsername}
+        />}
+        <Dashboard />
+      </div>
+    </Router>
   );
 }
 

@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './navigation.css'
 import Activity from '../Activity'
+import Button from '../general/Button'
+import { faHome, faStar, faClock } from '@fortawesome/free-solid-svg-icons'  // Import the icons
 
 const SideBar = () => {
   const [selected, setSelected] = useState("home");
@@ -47,14 +49,29 @@ const SideBar = () => {
   return (
     <nav>
       <ul className="navigation">
-        <li onClick={() => setPage("Home")}>
-          <i className="icon-home"></i> Home
+        <li>
+          <Button 
+            label="Home" 
+            icon={faHome} 
+            onClick={() => setPage("Home")} 
+            className={selected === "Home" ? "selected" : ""}
+          />
         </li>
-        <li onClick={() => setPage("Favorites")}>
-          <i className="icon-favorites"></i> Favorites
+        <li>
+          <Button 
+            label="Favorites" 
+            icon={faStar} 
+            onClick={() => setPage("Favorites")} 
+            className={selected === "Favorites" ? "selected" : ""}
+          />
         </li>
-        <li onClick={() => setPage("Watch Later")}>
-          <i className="icon-watch-later"></i> Watch Later
+        <li>
+          <Button 
+            label="Watch Later" 
+            icon={faClock} 
+            onClick={() => setPage("Watch Later")} 
+            className={selected === "Watch Later" ? "selected" : ""}
+          />
         </li>
       </ul>
       <ul className="activity">

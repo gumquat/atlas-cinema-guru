@@ -1,0 +1,51 @@
+/* Header styles */
+.custom-header {
+  background-color: #333333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+/* Cinema Guru text */
+.custom-header p:first-of-type {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Container for right-aligned elements */
+.custom-header .right-elements {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto; /* Push the right elements to the right */
+}
+
+/* / Profile picture / */
+.custom-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid red;
+  object-fit: cover;
+}
+
+/* Welcome text */
+.custom-header .right-elements p {
+  margin: 0;
+}
+
+/* Logout span  */
+.custom-header span {
+  color: red;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Logout icon */
+.custom-header span svg {
+  margin-left: 5px;
+}

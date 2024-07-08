@@ -1,5 +1,7 @@
 import React from 'react'
 import './navigation.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Header = ({ userUsername, setIsLoggedIn }) => {
   const logout = () => {
@@ -8,12 +10,15 @@ const Header = ({ userUsername, setIsLoggedIn }) => {
   };
 
   return (
-    <nav>
-      <img src="https://picsum.photos/100/100" alt="Random avatar" />
-      <p>Welcome, {userUsername}!</p>
-      <span onClick={logout}>
-        <i className="icon-logout"></i> Logout
-      </span>
+    <nav className="custom-header">
+      <p>Cinema Guru</p>
+      <div className="right-elements">
+        <img src="https://picsum.photos/100/100" alt="Random avatar" />
+        <p>Welcome, {userUsername}!</p>
+        <span onClick={logout}>
+          Logout <FontAwesomeIcon icon={faSignOutAlt} />
+        </span>
+      </div>
     </nav>
   )
 }

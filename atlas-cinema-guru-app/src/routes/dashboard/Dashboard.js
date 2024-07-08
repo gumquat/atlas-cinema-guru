@@ -6,8 +6,13 @@ import SideBar from '../../components/navigation/SideBar'
 const Dashboard = ({userUsername, setIsLoggedIn}) => {
   return (
     <div>
-      <Header userUsername={userUsername} setIsLoggedIn={setIsLoggedIn} />
-      <SideBar/>
+      <div className='custom-header'>
+        <Header userUsername={userUsername} setIsLoggedIn={setIsLoggedIn} />
+      </div>
+      <div>
+        <SideBar/>
+      </div>
+
     </div>
   )
 }

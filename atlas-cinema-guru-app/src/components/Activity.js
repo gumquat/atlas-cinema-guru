@@ -1,15 +1,8 @@
 import React from 'react'
+import './components.css'
 
 const Activity = () => {
-  return (
-    <li>
-      <p>lorem ipsum lorem</p>
-      <p>lorem ipsum lorem</p>
-      <p>lorem ipsum lorem</p>
-      <p>lorem ipsum lorem</p>
-      <p>lorem ipsum lorem</p>
-    </li>
-  )
+  return
 }
 
 export default Activity;

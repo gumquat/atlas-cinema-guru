@@ -6,7 +6,7 @@ import Register from './Register';
 import axios from 'axios';
 
 const Authentication = ({ setIsLoggedIn, setUserUsername }) => {
-  const [_switch, set_switch] = useState(true);
+  const [_switch, setSwitch] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");

@@ -1,4 +1,4 @@
-/*HEADER STYLING*/
+/*     HEADER STYLING     */
 .custom-header {
   background-color: #333333;
   color: white;
@@ -51,4 +51,51 @@
   margin-left: 5px;
 }
 
-/*SIDEBAR STYLING*/
+/*     SIDEBAR STYLING     */
+.custom-sidebar {
+  width: 200px; /* Adjust this width as needed */
+  background-color:red; /* Light grey background */
+  height: 100vh; /* Full height */
+  padding: 20px 0;
+}
+
+.custom-sidebar .navigation {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-sidebar .navigation li {
+  width: 100%;
+}
+
+.custom-sidebar .navigation button {
+  width: 100%;
+  text-align: left;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.custom-sidebar .navigation button:hover {
+  background-color: darkred;
+}
+
+.custom-sidebar .navigation button.selected {
+  background-color: #d0d0d0;
+  font-weight: bold;
+}
+
+.custom-sidebar .navigation button svg {
+  margin-right: 10px;
+}
+
+.custom-sidebar .activity {
+  list-style-type: none;
+  padding: 0 20px;
+  margin-top: 20px;
+}

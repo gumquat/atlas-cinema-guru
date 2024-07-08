@@ -47,7 +47,7 @@ const SideBar = () => {
   }
 
   return (
-    <nav>
+    <nav className='custom-sidebar'>
       <ul className="navigation">
         <li>
           <Button 

@@ -1,11 +1,11 @@
-/* Header styles */
+/*HEADER STYLING*/
 .custom-header {
   background-color: #333333;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%; /* Ensure the header spans the full width */
+  width: 100%;
   padding: 5px 20px;
 }
 
@@ -24,7 +24,7 @@
   margin-left: auto; /* Push the right elements to the right */
 }
 
-/* / Profile picture / */
+/* Profile picture */
 .custom-header img {
   width: 40px;
   height: 40px;
@@ -50,3 +50,5 @@
 .custom-header span svg {
   margin-left: 5px;
 }
+
+/*SIDEBAR STYLING*/

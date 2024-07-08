@@ -1,10 +1,7 @@
 import {useState, useEffect} from 'react';
+import axios from 'axios';
 import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
-import Input from './components/general/Input';
-import SelectInput from './components/general/SelectInput';
-import SearchBar from './components/general/SearchBar';
-import Button from './components/general/Button';
 import Authentication from './routes/auth/Authentication';
 import Dashboard from './routes/dashboard/Dashboard';
 
@@ -14,7 +11,6 @@ function App() {
   // APP useState USERNAME and PASSWORD
   const [userUsername, setUserUsername] = useState('');
   const [userPassword, setUserPassword] = useState('');
-    // need username and password handler functions
 
   // SearchBar useState
   const [title, setTitle] = useState('');
@@ -31,84 +27,38 @@ function App() {
     { label: 'Lowest Rated', value: '5' },
   ];
 
-  // useEffect for handling LOGIN when the component mounts  
   useEffect(() => {
-    const authenticateUser = async () => {
-      const accessToken = localStorage.getItem('accessToken');
-      if (accessToken) {
-        try {
-          const response = await fetch('/api/auth/', {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${accessToken}`,
-              'Content-Type': 'application/json'
-            }
-          });
-          if (response.ok) {
-            // Handle authetication success
-            const data = await response.json();
-            setIsLoggedIn(true);
-            setUserUsername(data.username);
-          } else {
-            // Handle authentication failure
-            setIsLoggedIn(false);
-            setUserUsername('');
-          }
-        } catch (error) {
-          // error logging
-          console.error('Authentication error:', error);
-          setIsLoggedIn(false);
-          setUserUsername('');
+    const accessToken = localStorage.getItem("accessToken");
+    console.log(accessToken);
+
+    if (accessToken) {
+      axios.post('http://localhost:8000/api/auth/', {}, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
         }
-      }
-    };
-    authenticateUser();
-  }, []); // Empty dependency array means this effect runs once on mount
+      })
+      .then(response => {
+        setUserUsername(response.data.username);
+        setIsLoggedIn(true);
+      })
+      .catch(error => {
+        console.log('Authentication error:', error.response ? error.response.data : error);
+        // localStorage.removeItem("accessToken");
+        // setIsLoggedIn(false);
+      })
+    }
+  }, []);
 
   return (
-    <Router>
-      <div className="App">
-        {isLoggedIn ? (
-          // Render the main app content when logged in
-          <div>
-            <h1>Welcome, {userUsername}!</h1>
-            {/* Add your main app components here */}
-            <div>
-              <SearchBar
-                title={title}
-                setTitle={setTitle}
-              />
-            </div>
-            <div>
-              <Button label="Load More..."/>
-            </div>
-            <div>
-              <Input
-                label="placeholder title"
-                type="text"
-                value={inputValue}
-                setValue={setInputValue}
-              />
-            </div>
-            <div>
-              <SelectInput
-                label="Choose an option"
-                options={options}
-                value={selectedOption}
-                setValue={setSelectedOption}
-              />
-            </div>
-          </div>
-        ) : (
-          // Render the Authentication component when not logged in
-          <Authentication 
-            setIsLoggedIn={setIsLoggedIn} 
-            setUserUsername={setUserUsername}
-          />
-        )}
-        <Dashboard/>
-      </div>
-    </Router>
+    <div className={`App ${isLoggedIn ? 'dashboard-view' : 'authentication-view'}`}>
+      {isLoggedIn ? <Dashboard
+        userUsername={userUsername}
+        setIsLoggedIn={setIsLoggedIn}
+      /> : <Authentication
+        setIsLoggedIn={setIsLoggedIn}
+        setUserUsername={setUserUsername}
+      />}
+    </div>
   );
 }
 

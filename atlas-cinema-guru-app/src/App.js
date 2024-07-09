@@ -59,7 +59,6 @@ function App() {
           setIsLoggedIn={setIsLoggedIn}
           setUserUsername={setUserUsername}
         />}
-        <Dashboard />
       </div>
     </Router>
   );

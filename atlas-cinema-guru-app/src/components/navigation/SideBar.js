@@ -1,50 +1,48 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './navigation.css'
 import Activity from '../Activity'
 import Button from '../general/Button'
-import { faHome, faStar, faClock } from '@fortawesome/free-solid-svg-icons'  // Import the icons
+import { faHome, faStar, faClock, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 const SideBar = () => {
   const [selected, setSelected] = useState("home");
   const [small, setSmall] = useState(true);
   const [activities, setActivities] = useState([]);
   const [showActivities, setShowActivites] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   // useNavigate hook
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchActivities = async () => {
-      try {
-        const response = await axios.get('/api/activity');
-        setActivities(response.data);
-      } catch (error) {
-        console.error('Error fetching activities:', error);
-      }
-    };
+  const handleSidebarToggle = () => {
+    setIsCollapsed(prevState => !prevState);
+  };
 
-    fetchActivities();
-  }, []);
-
-  // quick and dirty page changer
+  // cleaned up the previous page setter to two lines using navigate()
   const setPage = (pageName) => {
     setSelected(pageName);
-    switch(pageName) {
-      case "Home":
-        navigate('/home');
-        break;
-      case "Favorites":
-        navigate('/favorites');
-        break;
-      case "Watch Later":
-        navigate('/watchlater');
-        break;
-      default:
-        console.log("Unknown page name");
-    }
+    navigate(`/${pageName}`);
   }
+
+  // fixed retreival of activities from previous version
+  const retrieveActivities = useCallback(async () => {
+    try {
+      const token = localStorage.getItem('accessToken');
+      const { data } = await axios.get('http://localhost:8000/api/activity', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setActivities(data.slice(0, 10));
+      setShowActivities(true);
+    } catch (error) {
+      console.error('Error fetching activities:', error);
+    }
+  }, []);
+
+  useEffect(() => {
+    retrieveActivities();
+  }, [retrieveActivities]);
 
   return (
     <nav className='custom-sidebar'>

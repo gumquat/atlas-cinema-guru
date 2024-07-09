@@ -94,3 +94,55 @@
   color: var(--color-white);
   border-color: var(--color-light-red);
 }
+
+/* FILTER STYLES */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 20px 40px; /* Increased left padding by 20px */
+  background-color: var(--color-dark-gray);
+  border-radius: 8px;
+}
+
+.filter-left {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.filter-search {
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+
+.filter-controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-controls input,
+.filter-controls select {
+  padding: 5px;
+  margin-right: 10px;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  border: 1px solid var(--color-gray);
+  border-radius: 4px;
+}
+
+.filter-right {
+  width: 35%;
+}
+
+.genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.genre-list .genre-tag {
+  margin: 5px;
+}

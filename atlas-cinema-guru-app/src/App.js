@@ -3,7 +3,8 @@ import axios from 'axios';
 import './App.css';
 import Authentication from './routes/auth/Authentication';
 import Dashboard from './routes/dashboard/Dashboard';
-import MovieCard from './components/movies/MovieCard';
+// import MovieCard from './components/movies/MovieCard';
+import Filter from './components/movies/Filter';
 
 function App() {
   // APP useState Is Logged IN/OFF
@@ -56,7 +57,6 @@ function App() {
           setIsLoggedIn={setIsLoggedIn}
           setUserUsername={setUserUsername}
         />}
-        <MovieCard/>
       </div>
   );
 }

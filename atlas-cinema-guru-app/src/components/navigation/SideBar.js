@@ -11,14 +11,32 @@ const SideBar = () => {
   const [small, setSmall] = useState(true);
   const [activities, setActivities] = useState([]);
   const [showActivities, setShowActivites] = useState(false);
+  // side bar collapse state
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   // useNavigate hook
   const navigate = useNavigate();
 
+  // SIDEBAR HANDLING - COLLAPSE AND STATE
   const handleSidebarToggle = () => {
     setIsCollapsed(prevState => !prevState);
   };
+
+  useEffect(() => {
+    const updateSidebarPosition = () => {
+      const headerElement = document.querySelector('.header-nav');
+      const sidebarElement = document.querySelector('.sidebar');
+      if (headerElement && sidebarElement) {
+        sidebarElement.style.top = `${headerElement.offsetHeight}px`;
+      }
+    };
+
+    updateSidebarPosition();
+    window.addEventListener('resize', updateSidebarPosition);
+    return () => {
+      window.removeEventListener('resize', updateSidebarPosition);
+    };
+  }, []);
 
   // cleaned up the previous page setter to two lines using navigate()
   const setPage = (pageName) => {
@@ -45,40 +63,54 @@ const SideBar = () => {
   }, [retrieveActivities]);
 
   return (
-    <nav className='custom-sidebar'>
-      <ul className="navigation">
-        <li>
-          <Button 
-            label="Home" 
-            icon={faHome} 
-            onClick={() => setPage("Home")} 
-            className={selected === "Home" ? "selected" : ""}
-          />
+    <nav
+      className={`sidebar ${isCollapsed ? '' : 'open'}`}
+      onMouseEnter={handleSidebarToggle}
+      onMouseLeave={handleSidebarToggle}
+    >
+      <ul className="navigation-menu">
+        <li
+          className={`nav-item ${selectedPage === 'home' ? 'selected' : ''}`}
+          onClick={() => setPage('home')}
+        >
+          <FontAwesomeIcon className="fa-icon" icon={faHome} />
+          {!isCollapsed && <span>Home</span>}
+          <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
-        <li>
-          <Button 
-            label="Favorites" 
-            icon={faStar} 
-            onClick={() => setPage("Favorites")} 
-            className={selected === "Favorites" ? "selected" : ""}
-          />
+        <li
+          className={`nav-item ${selectedPage === 'favorites' ? 'selected' : ''}`}
+          onClick={() => setPage('favorites')}
+        >
+          <FontAwesomeIcon className="fa-icon" icon={faStar} />
+          {!isCollapsed && <span>Favorites</span>}
+          <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
-        <li>
-          <Button 
-            label="Watch Later" 
-            icon={faClock} 
-            onClick={() => setPage("Watch Later")} 
-            className={selected === "Watch Later" ? "selected" : ""}
-          />
+        <li
+          className={`nav-item ${selectedPage === 'watchlater' ? 'selected' : ''}`}
+          onClick={() => setPage('watchlater')}
+        >
+          <FontAwesomeIcon className="fa-icon" icon={faClock} />
+          {!isCollapsed && <span>Watch Later</span>}
+          <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
       </ul>
-      <ul className="activity">
-        {activities.slice(0, 10).map((activity, index) => (
-          <Activity key={index} activity={activity} />
-        ))}
-      </ul>
+      <div className="activities-container">
+        <h2 className="activities-title">Latest Activities</h2>
+        {showActivities && activities.length > 0 && (
+          <ul className="activity-list">
+            {activities.map((activity, idx) => (
+              <Activity
+                key={idx}
+                userUsername={activity.userUsername}
+                title={activity.title}
+                date={activity.date}
+              />
+            ))}
+          </ul>
+        )}
+      </div>
     </nav>
-  )
-}
+  );
+};
 
 export default SideBar;

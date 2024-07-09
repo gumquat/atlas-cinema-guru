@@ -1,3 +1,13 @@
-.custom-dashboard {
-  background-color: darkgray ;
+@import '../../App.css';
+
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Filter {
+  display: flex;
+  flex-direction: row;
 }

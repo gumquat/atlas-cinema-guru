@@ -3,14 +3,15 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './navigation.css'
 import Activity from '../Activity'
-import Button from '../general/Button'
+// import Button from '../general/Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faStar, faClock, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 const SideBar = () => {
   const [selected, setSelected] = useState("home");
   const [small, setSmall] = useState(true);
   const [activities, setActivities] = useState([]);
-  const [showActivities, setShowActivites] = useState(false);
+  const [showActivities, setShowActivities] = useState(false);
   // side bar collapse state
   const [isCollapsed, setIsCollapsed] = useState(true);
 
@@ -70,7 +71,7 @@ const SideBar = () => {
     >
       <ul className="navigation-menu">
         <li
-          className={`nav-item ${selectedPage === 'home' ? 'selected' : ''}`}
+          className={`nav-item ${selected === 'home' ? 'selected' : ''}`}
           onClick={() => setPage('home')}
         >
           <FontAwesomeIcon className="fa-icon" icon={faHome} />
@@ -78,7 +79,7 @@ const SideBar = () => {
           <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
         <li
-          className={`nav-item ${selectedPage === 'favorites' ? 'selected' : ''}`}
+          className={`nav-item ${selected === 'favorites' ? 'selected' : ''}`}
           onClick={() => setPage('favorites')}
         >
           <FontAwesomeIcon className="fa-icon" icon={faStar} />
@@ -86,7 +87,7 @@ const SideBar = () => {
           <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
         <li
-          className={`nav-item ${selectedPage === 'watchlater' ? 'selected' : ''}`}
+          className={`nav-item ${selected === 'watchlater' ? 'selected' : ''}`}
           onClick={() => setPage('watchlater')}
         >
           <FontAwesomeIcon className="fa-icon" icon={faClock} />

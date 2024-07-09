@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import Authentication from './routes/auth/Authentication';
 import Dashboard from './routes/dashboard/Dashboard';
@@ -43,14 +42,11 @@ function App() {
       })
       .catch(error => {
         console.log('Authentication error:', error.response ? error.response.data : error);
-        // localStorage.removeItem("accessToken");
-        // setIsLoggedIn(false);
       })
     }
   }, []);
 
   return (
-    <Router>
       <div className={`App ${isLoggedIn ? 'dashboard-view' : 'authentication-view'}`}>
         {isLoggedIn ? <Dashboard
           userUsername={userUsername}
@@ -60,7 +56,6 @@ function App() {
           setUserUsername={setUserUsername}
         />}
       </div>
-    </Router>
   );
 }
 

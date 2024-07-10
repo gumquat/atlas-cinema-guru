@@ -20,7 +20,7 @@ const Favorites = () => {
   }, []);
 
   return (
-    <div>
+    <div className='favorites'>
       <h1>Movies you like</h1>
       <div className="movie-list">
         {movies.map(movie => (

@@ -1,5 +1,8 @@
 @import '../../App.css';
 
+/*Style for Dashboard*/
+/*Style for Dashboard*/
+/*Style for Dashboard*/
 .dashboard {
   display: flex;
   flex-direction: column;
@@ -21,6 +24,9 @@
   flex-direction: column;
 }
 
+/*Style for Sidebar*/
+/*Style for Sidebar*/
+/*Style for Sidebar*/
 /* Ensure SideBar has a fixed width */
 .sidebar {
   width: 250px; /* Adjust as needed */
@@ -34,6 +40,8 @@
   margin-bottom: 20px;
 }
 
+/* Style for HomePage */
+/* Style for HomePage */
 /* Style for HomePage */
 .home-page {
   flex: 1;
@@ -57,4 +65,28 @@
   width: 200px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/*Style for Favorites*/
+/*Style for Favorites*/
+/*Style for Favorites*/
+.favorites h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: var(--color-light-red);
+}
+
+/*Style for Watch Later*/
+/*Style for Watch Later*/
+/*Style for Watch Later*/
+.watch-later h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: var(--color-light-red);
 }

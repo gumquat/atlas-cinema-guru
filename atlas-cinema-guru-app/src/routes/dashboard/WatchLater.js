@@ -20,7 +20,7 @@ const WatchLater = () => {
   }, []);
 
   return (
-    <div>
+    <div className='watch-later'>
       <h1>Movies you want to watch later</h1>
       <div className="movie-list">
         {movies.map(movie => (

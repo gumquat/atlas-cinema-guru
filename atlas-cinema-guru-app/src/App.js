@@ -19,14 +19,6 @@ function App() {
   const [inputValue, setInputValue] = useState('');
   // SelectedInput useState
   const [selectedOption, setSelectedOption] = useState('');
-  // SelectInput Options
-  const options = [
-    { label: 'Default', value: '1' },
-    { label: 'Latest', value: '2' },
-    { label: 'Oldest', value: '3' },
-    { label: 'Highest Rated', value: '4' },
-    { label: 'Lowest Rated', value: '5' },
-  ];
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './dashboard.css'
 import Header from '../../components/navigation/Header'
 import SideBar from '../../components/navigation/SideBar'
@@ -11,6 +11,13 @@ const Favorites = () => <div></div>;
 const WatchLater = () => <div></div>;
 
 const Dashboard = ({userUsername, setIsLoggedIn}) => {
+  // States for Filter component
+  const [minYear, setMinYear] = useState('');
+  const [maxYear, setMaxYear] = useState('');
+  const [sort, setSort] = useState('latest');
+  const [title, setTitle] = useState('');
+  const [genres, setGenres] = useState([]);
+
   return (
     <BrowserRouter>
       <div className="dashboard">
@@ -18,7 +25,18 @@ const Dashboard = ({userUsername, setIsLoggedIn}) => {
         <div className="dashboard-content">
           <SideBar />
           <div className="main-content">
-            <Filter/>
+            <Filter
+              minYear={minYear}
+              setMinYear={setMinYear}
+              maxYear={maxYear}
+              setMaxYear={setMaxYear}
+              sort={sort}
+              setSort={setSort}
+              title={title}
+              setTitle={setTitle}
+              genres={genres}
+              setGenres={setGenres}
+            />
             <Routes>
               <Route path="/home" element={<HomePage />} />
               <Route path="/favorites" element={<Favorites />} />

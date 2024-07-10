@@ -1,4 +1,4 @@
-/*BEGIN INSANE CSS CODE*/
+@import '../../App.css';
 
 /*BUTTON - COMPONENT*/
 .custom-button {
@@ -32,5 +32,19 @@
 }
 
 .search-bar-wrapper input {
-  padding-left: 30px; /* Adjust this value based on your icon size */
+  padding-left: 30px;
+  border-radius: 25px;
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
+}
+.input-wrapper input{
+  border-radius: 25px;
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
+}
+.select-input-container select {
+  border-radius: 25px;
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
+
 }

@@ -1,6 +1,8 @@
 @import '../../App.css';
 
 /* MOVIE CARD */
+/* MOVIE CARD */
+/* MOVIE CARD */
 .movie-card {
   display: flex;
   flex-direction: column;
@@ -87,6 +89,7 @@
   background-color: var(--color-dark-gray);
   color: var(--color-white);
   font-size: 0.8em;
+  transition: background-color 0.3s ease;
 }
 
 .genre-tag.selected {
@@ -96,38 +99,33 @@
 }
 
 /* FILTER STYLES */
+/* FILTER STYLES */
+/* FILTER STYLES */
 .filter-container {
   display: flex;
-  justify-content: space-between;
-  padding: 20px 20px 20px 40px; /* Increased left padding by 20px */
+  flex-direction: column;
+  padding: 20px;
+  padding-left: 40px;
   background-color: var(--color-dark-gray);
   border-radius: 8px;
 }
 
-.filter-left {
-  display: flex;
-  flex-direction: column;
-  width: 60%;
+.filter-search-row {
+  margin-bottom: 20px;
 }
 
-.filter-search {
-  align-self: flex-end;
-  margin-bottom: 10px;
-}
-
-.filter-controls {
+.filter-controls-row {
   display: flex;
   justify-content: space-between;
 }
 
-.filter-controls input,
-.filter-controls select {
-  padding: 5px;
+.filter-left {
+  display: flex;
+  width: 60%;
+}
+
+.filter-left > * {
   margin-right: 10px;
-  background-color: var(--color-dark);
-  color: var(--color-white);
-  border: 1px solid var(--color-gray);
-  border-radius: 4px;
 }
 
 .filter-right {

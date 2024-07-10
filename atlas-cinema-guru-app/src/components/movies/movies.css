@@ -17,12 +17,15 @@
 
 .card-header {
   position: absolute;
+  top: 0;
+  right: 0; /* Changed from left: 0 to right: 0 */
   padding: 10px;
   z-index: 1;
 }
 
 .action-icons {
   display: flex;
+  justify-content: flex-end; /* Added this line */
 }
 
 .action-icons svg {
